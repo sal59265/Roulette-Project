@@ -25,3 +25,13 @@ div {
   background-color: black;
   color: white;
 }
+
+.buttonOne {
+  background-color: white;
+  border-radius: 100%;
+}
+
+.buttonFive {
+  background-color: white;
+  border-radius: 100%;
+}
