@@ -1,0 +1,27 @@
+header {
+  text-align: center;
+  margin: 20px;
+  font-size: 50px;
+}
+section {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 40px;
+}
+
+#red {
+  background-color: red;
+  color: white;
+}
+
+#black {
+  background-color: black;
+  color: white;
+}
