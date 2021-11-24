@@ -27,7 +27,9 @@ const oneDollar = () => {
   }
 };
 
-const randomNum = () => {};
+const randomNum = () => {
+  Math.floor(Math.random() * cells.length + 1);
+};
 
 cells.forEach((cell) => {
   cell.addEventListener('click', play);
