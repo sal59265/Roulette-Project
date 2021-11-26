@@ -10,7 +10,7 @@ let isPlaying = true;
 let currentBettingAmount = 1;
 let balance = 100;
 
-const randomNum = Math.floor(Math.random() * cells.length + 1);
+const winningNum = Math.floor(Math.random() * cells.length + 1);
 
 const play = (event) => {
   if (isPlaying === true) {
@@ -23,13 +23,13 @@ const play = (event) => {
   if (bettingAmount >= 30) {
     document.getElementById(
       'winningNum'
-    ).innerHTML = `The winning number is ${randomNum}!`;
+    ).innerHTML = `The winning number is ${winningNum}!`;
     document.getElementById(
       'winning'
     ).innerHTML = `Your current money is ${balance}`;
     isPlaying = false;
   }
-  if (randomNum === parseInt(event.target.innerHTML)) {
+  if (winningNum === parseInt(event.target.innerHTML)) {
     balance = balance + 36 * currentBettingAmount;
   }
 };
