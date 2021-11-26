@@ -5,35 +5,51 @@ const even = document.querySelector('.even');
 const odd = document.querySelector('.odd');
 const one = document.querySelector('.buttonOne');
 const five = document.querySelector('.buttonFive');
-let yourBet = 0;
-let playing = true;
-let currentPlaying = 1;
+let bettingAmount = 0;
+let isPlaying = true;
+let currentBettingAmount = 1;
+let balance = 100;
 
-const play = () => {
-  if (playing === true) {
-    yourBet = yourBet + currentPlaying;
+const randomNum = Math.floor(Math.random() * cells.length + 1);
+
+const play = (event) => {
+  if (isPlaying === true) {
+    bettingAmount = bettingAmount + currentBettingAmount;
+    balance = balance - currentBettingAmount;
+  }
+  document.getElementById(
+    'currentBet'
+  ).innerHTML = `Your Current bet is $${bettingAmount}`;
+  if (bettingAmount >= 30) {
+    document.getElementById(
+      'winningNum'
+    ).innerHTML = `The winning number is ${randomNum}!`;
+    document.getElementById(
+      'winning'
+    ).innerHTML = `Your current money is ${balance}`;
+    isPlaying = false;
+  }
+  if (randomNum === parseInt(event.target.innerHTML)) {
+    balance = balance + 36 * currentBettingAmount;
   }
 };
 
 const fiveDollar = () => {
-  if (playing === true) {
-    currentPlaying = 5;
+  if (isPlaying === true) {
+    currentBettingAmount = 5;
   }
 };
 
 const oneDollar = () => {
-  if (playing === true) {
-    currentPlaying = 1;
+  if (isPlaying === true) {
+    currentBettingAmount = 1;
   }
-};
-
-const randomNum = () => {
-  Math.floor(Math.random() * cells.length + 1);
 };
 
 cells.forEach((cell) => {
   cell.addEventListener('click', play);
 });
+
 // for (let i = 0; i < cells.length; i++) {
 //   cells[i].addEventListener('click', play);
 // }
