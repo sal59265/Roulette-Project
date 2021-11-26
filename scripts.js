@@ -46,6 +46,14 @@ const oneDollar = () => {
   }
 };
 
+const toggleBettingAmount = () => {
+  if (isPlaying && currentBettingAmount === 1) {
+    currentBettingAmount = 5;
+  } else {
+    currentBettingAmount = 1;
+  }
+};
+
 cells.forEach((cell) => {
   cell.addEventListener('click', play);
 });
@@ -53,5 +61,5 @@ cells.forEach((cell) => {
 // for (let i = 0; i < cells.length; i++) {
 //   cells[i].addEventListener('click', play);
 // }
-five.addEventListener('click', fiveDollar);
-one.addEventListener('click', oneDollar);
+five.addEventListener('click', toggleBettingAmount);
+one.addEventListener('click', toggleBettingAmount);
