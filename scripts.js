@@ -1,8 +1,8 @@
 const cells = document.querySelectorAll('.cell');
-const blackCells = document.querySelectorAll('#black');
-const redCells = document.querySelectorAll('#red');
-const even = document.querySelector('.even');
-const odd = document.querySelector('.odd');
+// const blackCells = document.querySelectorAll('#black');
+// const redCells = document.querySelectorAll('#red');
+// const black = document.querySelector('.blackCell');
+// const red = document.querySelector('.redCell');
 const one = document.querySelector('.buttonOne');
 const five = document.querySelector('.buttonFive');
 const playMore = document.querySelector('.continue');
