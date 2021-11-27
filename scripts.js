@@ -12,8 +12,10 @@ let isPlaying = true;
 let currentBettingAmount = 1;
 let balance = 100;
 
-const winningNum = Math.floor(Math.random() * cells.length + 1);
-
+const winningNumGenerator = () => {
+  return Math.floor(Math.random() * cells.length + 1);
+};
+let winningNumber = winningNumGenerator();
 const play = (event) => {
   if (isPlaying === true) {
     bettingAmount = bettingAmount + currentBettingAmount;
@@ -24,13 +26,13 @@ const play = (event) => {
     if (bettingAmount >= 30) {
       document.getElementById(
         'winningNum'
-      ).innerHTML = `The winning number is ${winningNum}!`;
+      ).innerHTML = `The winning number is ${winningNumber}!`;
       document.getElementById(
         'winning'
       ).innerHTML = `Your current money is ${balance}`;
       isPlaying = false;
     }
-    if (winningNum === parseInt(event.target.innerHTML)) {
+    if (winningNumber === parseInt(event.target.innerHTML)) {
       balance = balance + 34 * currentBettingAmount;
     }
   }
@@ -48,12 +50,12 @@ const oneDollar = () => {
   }
 };
 
-const toggleBettingAmount = () => {
-  if (isPlaying && currentBettingAmount === 1) {
-    currentBettingAmount = 5;
-  } else {
-    currentBettingAmount = 1;
-  }
+const changeToOneDollar = () => {
+  currentBettingAmount = 1;
+};
+
+const changeToFiveDollar = () => {
+  currentBettingAmount = 5;
 };
 
 cells.forEach((cell) => {
@@ -66,6 +68,7 @@ const continuePlaying = () => {
   isPlaying = true;
   currentBettingAmount = 1;
   bettingAmount = 0;
+  winningNumber = winningNumGenerator();
   alert('Keep playing');
 };
 
@@ -77,9 +80,10 @@ const againPlaying = () => {
   document.getElementById(
     'winning'
   ).innerHTML = `Your current money is ${balance}`;
+  winningNumber = winningNumGenerator();
   alert('Better luck this time');
 };
-five.addEventListener('click', toggleBettingAmount);
-one.addEventListener('click', toggleBettingAmount);
+five.addEventListener('click', changeToFiveDollar);
+one.addEventListener('click', changeToOneDollar);
 playMore.addEventListener('click', continuePlaying);
 playAgain.addEventListener('click', againPlaying);
