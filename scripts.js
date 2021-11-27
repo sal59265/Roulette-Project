@@ -30,7 +30,7 @@ const play = (event) => {
     isPlaying = false;
   }
   if (winningNum === parseInt(event.target.innerHTML)) {
-    balance = balance + 36 * currentBettingAmount;
+    balance = balance + 34 * currentBettingAmount;
   }
 };
 
